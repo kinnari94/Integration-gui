@@ -60,7 +60,7 @@ public class EhrId extends JFrame {
 		lblEnterEhrId.setBounds(29, 29, 82, 24);
 		contentPane.add(lblEnterEhrId);
 		
-		JTextField ehrval = new JTextField();
+		ehrval = new JTextField();
 		ehrval.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {

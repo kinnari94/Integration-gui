@@ -50,10 +50,11 @@ public class SubjectId extends JFrame {
 		lblEnterSubjectId.setBounds(34, 31, 97, 23);
 		contentPane.add(lblEnterSubjectId);
 		
-		JTextField subjid = new JTextField();
+		subjid = new JTextField();
 		subjid.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+				//String subid = subjid.getText();
+				//System.out.println(subid);
 			}
 		});
 		subjid.setBounds(34, 56, 116, 22);
