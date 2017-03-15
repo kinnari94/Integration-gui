@@ -39,17 +39,28 @@ public class SubIdDetails extends JFrame {
 	}
 
 	private void FillData()throws Exception{
-		DefaultTableModel dfm = new DefaultTableModel();
-		dfm.addColumn("Name");
-		dfm.addColumn("City");
-		
+			
+			
 		String subid = SubjectId.subjid.getText();
 		String ns=SubjectId.textFieldNamespace.getText();
 		IPatient patient = PatientManager.getPatientDetailsFromSubjectId(subid,ns);
 		IEHR ehr = patient.getEhr();
 		IPerson person = patient.getPerson();
-		dfm.addRow(new Object[]{person.getGivenName(),person.getCity()});
-		tablePatient1.setModel(dfm);
+		
+		tablePatient1.setModel(new DefaultTableModel(
+			new Object[][] {
+				{"Name", person.getGivenName()},
+				{"Family Name", person.getFamilyName()},
+				{"Date of Birth", person.getDateOfBirth()},
+				{"City",person.getCity()},
+				{"Country", person.getCountry()},
+			},
+			new String[] {
+				"Person Details", "EHR record"
+			}
+		));
+		tablePatient1.getColumnModel().getColumn(0).setPreferredWidth(106);
+		tablePatient1.getColumnModel().getColumn(1).setPreferredWidth(109);
 		
 	}
 	/**
